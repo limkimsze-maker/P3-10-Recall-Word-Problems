@@ -16,11 +16,12 @@ jobs:
           p=Path('index.html'); s=p.read_text(encoding='utf-8')
           s=s.replace('Solve word problems based on the familiar worksheet examples.','Solve original Sports Fiesta word problems using number sentences and bar models.')
           s=s.replace('${name} ran <b>${mon} m</b> on ${day1}. ${name} ran <b>${diff} m</b> further on ${day1} than on ${day2}. How far did ${name} run on ${day2}?','During Sports Fiesta training, a runner completed <b>${mon} m</b> on Lap 1. Lap 1 was <b>${diff} m</b> longer than Lap 2. How far was Lap 2?')
-          s=s.replace('compareRunSVG(mon,tue,diff,day1,day2)','compareRunSVG(mon,tue,diff,"Lap 1","Lap 2")')
+          s=s.replace('function compareRunSVG(mon,tue,diff,"Lap 1","Lap 2"){','function compareRunSVG(mon,tue,diff,day1,day2){')
+          s=s.replace('${compareRunSVG(mon,tue,diff,day1,day2)}','${compareRunSVG(mon,tue,diff,"Lap 1","Lap 2")}')
           s=s.replace("${name} ran ${input('a4')} <span>m on ${day2}.</span>","The runner covered ${input('a4')} <span>m on Lap 2.</span>")
           s=s.replace('A container filled with <b>${content} kg</b> of ${item} has a mass of <b>${total} kg</b>. What is the mass of the container when it is empty?','A Sports Fiesta equipment box contains <b>${content} kg</b> of training gear. The box and gear have a total mass of <b>${total} kg</b>. What is the mass of the empty equipment box?')
           s=s.replace("The container has a mass of ${input('b4')} <span>kg when it is empty.</span>","The empty equipment box has a mass of ${input('b4')} <span>kg.</span>")
-          s=s.replace('Ribbon A','Streamer A').replace('Ribbon B','Streamer B').replace('How long are the ribbons?','How long are the Sports Fiesta streamers?').replace('The total length of both ribbons is','The total length of both streamers is')
+          s=s.replace('Ribbon A','Streamer A').replace('Ribbon B','Streamer B').replace('How long are the ribbons?','How long are the Sports Fiesta streamers?').replace('The total length of both ribbons is','The total length of both streamers is').replace('What is the total length of both ribbons?','What is the total length of both streamers?')
           hook='<script src="https://limkimsze-maker.github.io/P3-Length-Mass-and-Volume-Sports-Fiesta-/sports-fiesta-original-questions-v1.js?v=20260810a" data-practice="10"></script>\n'
           marker='<script src="https://limkimsze-maker.github.io/P3-Length-Mass-and-Volume-Sports-Fiesta-/sports-fiesta-medal-hook-v4.js'
           if 'sports-fiesta-original-questions-v1.js' not in s: s=s.replace(marker,hook+marker,1)
