@@ -1,0 +1,34 @@
+name: Left align Practice 10 questions
+on:
+  push:
+    paths:
+      - '.github/workflows/left-align-practice10.yml'
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Left align question title and story
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+          s = s.replace('#questionTitle{text-align:center;', '#questionTitle{text-align:left;')
+          s = s.replace('.story{text-align:center;', '.story{text-align:left;')
+          s = s.replace('max-width:98%;align-self:center', 'max-width:100%;align-self:stretch')
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit change
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html
+          if git diff --cached --quiet; then
+            echo 'No change needed.'
+          else
+            git commit -m 'Left align Practice 10 questions'
+            git push
+          fi
