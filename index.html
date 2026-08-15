@@ -17,7 +17,7 @@
 <body><div class="app">
 <header><a class="sfBackToHub" href="https://limkimsze-maker.github.io/P3-Length-Mass-and-Volume-Sports-Fiesta-/" aria-label="Back to Sports Fiesta Practice Hub">← Fiesta Hub</a><div class="headerTitle"><h1>🏊 🚴 🏃 Triathlon Word Problems</h1></div><div class="sub">Sports Fiesta • 1 Player or 2 Players • word problems • bar models<br>Swim → Cycle → Run → Finish</div></header>
 <main>
-<section id="home" class="screen active"><div class="homeGrid"><div class="card intro"><h2>Ready for the Triathlon?</h2><p>Solve original Sports Fiesta word problems using number sentences and bar models.</p><p>You will meet 3 question types:</p><p>• finding the <b>smaller amount</b><br>• finding the <b>missing part</b><br>• finding the <b>longer amount</b> and the <b>total</b></p><div class="modeRow"><button class="modeBtn one" onclick="startGame(1)">👤 1 Player</button><button class="modeBtn two" onclick="startGame(2)">👥 2 Players</button></div><div class="note">Correct answer → move forward in the triathlon.<br>Wrong answer → stay at the same point.</div></div><div class="card preview"><h3>Triathlon challenge</h3><ul><li>🏊 Start with the swim</li><li>🚴 Move on to cycling</li><li>🏃 Finish with the run</li><li>Use number sentences and bar models</li></ul><div class="previewArt" id="previewArt"></div></div></div></section>
+<section id="home" class="screen active"><div class="homeGrid"><div class="card intro"><h2>Ready for the Triathlon?</h2><p>Solve original Sports Fiesta word problems using number sentences and bar models.</p><p>You will meet the same 3 question types using <b>length, mass and volume</b>:</p><p>• finding the <b>smaller amount</b><br>• finding the <b>missing part</b><br>• finding the <b>larger amount</b> and the <b>total</b></p><div class="modeRow"><button class="modeBtn one" onclick="startGame(1)">👤 1 Player</button><button class="modeBtn two" onclick="startGame(2)">👥 2 Players</button></div><div class="note">Correct answer → move forward in the triathlon.<br>Wrong answer → stay at the same point.</div></div><div class="card preview"><h3>Triathlon challenge</h3><ul><li>🏊 Start with the swim</li><li>🚴 Move on to cycling</li><li>🏃 Finish with the run</li><li>Use number sentences and bar models</li></ul><div class="previewArt" id="previewArt"></div></div></div></section>
 <section id="game" class="screen"><div class="controls"><div class="btnRow"><button class="smallbtn" onclick="goHome()">← Home</button><button class="smallbtn" onclick="restart()">↻ New Game</button></div><button class="smallbtn" id="soundBtn" onclick="toggleSound()">🔊 Sound On</button></div><div class="statusline"><div class="score p1" id="score1">Player 1: 0</div><div class="round" id="round">1 / 10</div><div class="score p2" id="score2">Player 2: 0</div></div><div class="progress"><div id="bar"></div></div><div class="gameGrid"><div class="card questionCard"><div class="badges"><div class="badge" id="typeBadge">Find the smaller amount</div><div class="badge turn p1" id="turnBanner">👤 Your Turn</div></div><div id="questionTitle">Solve the problem.</div><div class="story" id="storyText"></div><div class="workArea"><div id="questionContent"></div></div><div class="actions"><button id="checkBtn" class="action" onclick="checkAnswer()">Check Answer</button><button id="nextBtn" class="action alt hidden" onclick="nextQuestion()">Next →</button></div><div class="feedback" id="feedback"></div><div class="explain" id="explain"></div></div>
 <div class="card raceCard"><div class="raceTitle">Sports Fiesta Triathlon</div><div class="raceStage"><svg class="raceSvg" viewBox="0 0 600 320" aria-label="triathlon race progress"><rect width="600" height="320" fill="#f8fdff"/><rect x="55" y="52" width="145" height="220" fill="#bfeeff"/><rect x="200" y="52" width="155" height="220" fill="#e8edf2"/><rect x="355" y="52" width="170" height="220" fill="#f2dfb6"/><line x1="200" y1="52" x2="200" y2="272" stroke="#fff" stroke-width="5"/><line x1="355" y1="52" x2="355" y2="272" stroke="#fff" stroke-width="5"/><text x="127" y="38" text-anchor="middle" font-size="21" font-weight="900" fill="#0d6f9e">🏊 SWIM</text><text x="277" y="38" text-anchor="middle" font-size="21" font-weight="900" fill="#4b6070">🚴 CYCLE</text><text x="440" y="38" text-anchor="middle" font-size="21" font-weight="900" fill="#8a631b">🏃 RUN</text><line x1="75" y1="127" x2="510" y2="127" stroke="#3c74a4" stroke-width="4" stroke-dasharray="9 7" opacity=".65"/><line x1="75" y1="226" x2="510" y2="226" stroke="#c87325" stroke-width="4" stroke-dasharray="9 7" opacity=".65"/><text id="p1Label" x="16" y="104" font-size="17" font-weight="900" fill="#3372bc">P1</text><text id="p2Label" x="16" y="203" font-size="17" font-weight="900" fill="#c16e18">P2</text><g id="finish" transform="translate(520 70)"><line x1="0" y1="0" x2="0" y2="185" stroke="#333" stroke-width="4"/><rect x="0" y="0" width="38" height="28" fill="#fff" stroke="#333" stroke-width="2"/><path d="M0 0h19v14H0zM19 14h19v14H19z" fill="#222"/></g><text x="520" y="291" text-anchor="middle" font-size="16" font-weight="900" fill="#333">FINISH</text><g id="athlete1" transform="translate(80 127)"><circle r="25" fill="#ddebff" stroke="#4a90e2" stroke-width="4"/><text id="athleteIcon1" x="0" y="9" text-anchor="middle" font-size="31">🏊</text></g><g id="athlete2" transform="translate(80 226)"><circle r="25" fill="#fff0e2" stroke="#ef8a2f" stroke-width="4"/><text id="athleteIcon2" x="0" y="9" text-anchor="middle" font-size="31">🏊</text></g><text x="22" y="145" font-size="14" font-weight="900" fill="#3372bc">Score:</text><text id="raceScore1" x="69" y="145" font-size="19" font-weight="900" fill="#3372bc">0</text><text id="p2ScoreLabel" x="22" y="244" font-size="14" font-weight="900" fill="#c16e18">Score:</text><text id="raceScore2" x="69" y="244" font-size="19" font-weight="900" fill="#c16e18">0</text></svg></div><div class="raceNote" id="raceNote">Ready to swim!</div></div></div></section>
 <section id="results" class="screen"><div class="card results"><div class="medal">🏅</div><h2 id="resultTitle">Triathlon Complete!</h2><p id="resultText"></p><button class="bigbtn" onclick="restart()">Play Again</button><button class="bigbtn gold" onclick="goHome()">Choose Mode</button></div></section>
@@ -71,18 +71,111 @@ function uniqueFrom(makeFn,count,seen){
   if(out.length!==count)throw new Error("Could not generate enough unique Practice 10 questions.");
   return out;
 }
+
+function compareVolumeSVG(big,small,diff,label1,label2){
+  const scale=340/big,bigW=big*scale,smallW=small*scale;
+  return `<svg viewBox="0 0 540 150" style="width:100%;max-width:540px;height:150px">
+    <text x="18" y="53" font-size="18" font-weight="900">${label1}</text>
+    <text x="18" y="102" font-size="18" font-weight="900">${label2}</text>
+    <rect x="125" y="34" width="${bigW}" height="28" fill="#78c8ec" stroke="#111" stroke-width="2"/>
+    <rect x="125" y="82" width="${smallW}" height="28" fill="#ccecf8" stroke="#111" stroke-width="2"/>
+    <path d="M125 30v-8h${bigW}v8" fill="none" stroke="#000" stroke-width="1.8"/>
+    <path d="M${125+smallW} 68v8h${bigW-smallW}v-8" fill="none" stroke="#000" stroke-width="1.8"/>
+    <path d="M125 116v8h${smallW}v-8" fill="none" stroke="#000" stroke-width="1.8"/>
+    <text x="${125+bigW/2}" y="20" text-anchor="middle" font-size="18" font-weight="900">${big} ml</text>
+    <text x="${125+smallW+(bigW-smallW)/2}" y="95" text-anchor="middle" font-size="18" font-weight="900">${diff} ml</text>
+    <text x="${125+smallW/2}" y="140" text-anchor="middle" font-size="18" font-weight="900">?</text>
+  </svg>`;
+}
+function volumeCapacitySVG(content,capacity,remaining){
+  const scale=330/capacity,contentW=content*scale,remainingW=remaining*scale;
+  return `<svg viewBox="0 0 520 120" style="width:100%;max-width:520px;height:120px">
+    <rect x="70" y="44" width="${contentW}" height="28" fill="#76c9ea" stroke="#000" stroke-width="2"/>
+    <rect x="${70+contentW}" y="44" width="${remainingW}" height="28" fill="#dff4fc" stroke="#000" stroke-width="2"/>
+    <path d="M70 38v-8h${contentW}v8" fill="none" stroke="#000" stroke-width="1.8"/>
+    <path d="M${70+contentW} 38v-8h${remainingW}v8" fill="none" stroke="#000" stroke-width="1.8"/>
+    <path d="M70 78v8h${contentW+remainingW}v-8" fill="none" stroke="#000" stroke-width="1.8"/>
+    <text x="${70+contentW/2}" y="22" text-anchor="middle" font-size="18" font-weight="900">${content} ml</text>
+    <text x="${70+contentW+remainingW/2}" y="22" text-anchor="middle" font-size="18" font-weight="900">?</text>
+    <text x="${70+(contentW+remainingW)/2}" y="104" text-anchor="middle" font-size="18" font-weight="900">${capacity} ml</text>
+  </svg>`;
+}
+function volumePairSVG(a,extra){
+  const b=a+extra,scale=350/b,aW=a*scale,bW=b*scale;
+  return `<svg viewBox="0 0 580 180" style="width:100%;max-width:580px;height:180px">
+    <text x="18" y="62" font-size="18" font-weight="900">Blue jug</text>
+    <text x="18" y="110" font-size="18" font-weight="900">Yellow jug</text>
+    <rect x="140" y="42" width="${aW}" height="28" fill="#78c8ec" stroke="#000" stroke-width="2"/>
+    <rect x="140" y="90" width="${bW}" height="28" fill="#f2cf72" stroke="#000" stroke-width="2"/>
+    <line x1="${140+aW}" y1="42" x2="${140+aW}" y2="118" stroke="#000" stroke-dasharray="4 4" stroke-width="1.7"/>
+    <path d="M140 36v-8h${aW}v8" fill="none" stroke="#000" stroke-width="1.8"/>
+    <path d="M${140+aW} 84v-8h${bW-aW}v8" fill="none" stroke="#000" stroke-width="1.8"/>
+    <path d="M140 124v8h${bW}v-8" fill="none" stroke="#000" stroke-width="1.8"/>
+    <text x="${140+aW/2}" y="20" text-anchor="middle" font-size="18" font-weight="900">${a} ml</text>
+    <text x="${140+aW+(bW-aW)/2}" y="84" text-anchor="middle" font-size="18" font-weight="900">${extra} ml</text>
+    <text x="${140+bW/2}" y="154" text-anchor="middle" font-size="18" font-weight="900">?</text>
+  </svg>`;
+}
 function buildQuestions(){
   const seen=new Set();
   const counts=TOTAL===12?[4,4,4]:[4,3,3];
-  return shuffle([
-    ...uniqueFrom(makeRunQuestion,counts[0],seen),
-    ...uniqueFrom(makeContainerQuestion,counts[1],seen),
-    ...uniqueFrom(makeMarkerStripQuestion,counts[2],seen)
-  ]);
+  const out=[
+    makeVolumeSmallerQuestion(),
+    makeVolumeMissingQuestion(),
+    makeVolumeLargerTotalQuestion()
+  ];
+  out.forEach(q=>seen.add(questionKey(q)));
+  out.push(...uniqueFrom(makeRunQuestion,counts[0]-1,seen));
+  out.push(...uniqueFrom(makeContainerQuestion,counts[1]-1,seen));
+  out.push(...uniqueFrom(makeMarkerStripQuestion,counts[2]-1,seen));
+  return shuffle(out);
 }
 function makeRunQuestion(){const tue=pick([180,200,220,240,250,260,280,300,320,350,360,400,420]),diff=pick([40,50,60,70,80,90,100,120,150,160]),mon=tue+diff;return{type:'Find the smaller amount',title:'How far was the shorter training lap?',story:`During Sports Fiesta training, a runner covered <b>${mon} m</b> on Lap 1. Lap 1 was <b>${diff} m</b> longer than Lap 2. How far was Lap 2?`,render:()=>`<div class="svgWrap">${compareRunSVG(mon,tue,diff,"Lap 1","Lap 2")}</div><div class="mathBlock"><div class="eqLine">${input('a1')} <span>−</span> ${input('a2')} <span>=</span> ${input('a3')}</div><div class="eqLine">The runner covered ${input('a4')} <span>m on Lap 2.</span></div></div>`,expected:{a1:mon,a2:diff,a3:tue,a4:tue},fields:['a1','a2','a3','a4'],explain:`${mon} − ${diff} = ${tue}.`}}
 function makeContainerQuestion(){const content=pick([6,7,8,9,10,12,15,18]),empty=pick([1,2,3,4,5,6]),total=content+empty;return{type:'Find the missing part',title:'What is the mass when empty?',story:`A Sports Fiesta equipment box contains <b>${content} kg</b> of training gear. The box and gear have a total mass of <b>${total} kg</b>. What is the mass of the empty equipment box?`,render:()=>`<div class="svgWrap">${containerSVG(content,total,empty)}</div><div class="mathBlock"><div class="eqLine">${input('b1')} <span>−</span> ${input('b2')} <span>=</span> ${input('b3')}</div><div class="eqLine">The empty equipment box has a mass of ${input('b4')} <span>kg.</span></div></div>`,expected:{b1:total,b2:content,b3:empty,b4:empty},fields:['b1','b2','b3','b4'],explain:`${total} − ${content} = ${empty}.`}}
-function makeMarkerStripQuestion(){const a=pick([120,140,160,180,200,220,240,260,280,300]),extra=pick([40,50,60,70,80,90,100,120,140]),b=a+extra,total=a+b;return{type:'Find the longer amount and total',title:'How long are the two lane-marker strips?',story:`A blue lane-marker strip is <b>${a} cm</b> long. A yellow lane-marker strip is <b>${extra} cm</b> longer than the blue strip.<br>(a) How long is the yellow strip?<br>(b) What is the total length of both marker strips?`,render:()=>`<div class="svgWrap">${markerStripSVG(a,extra)}</div><div class="mathBlock"><div class="eqLine"><span>(a)</span> ${a} <span>+</span> ${extra} <span>=</span> ${input('c1')}</div><div class="eqLine">The yellow strip is ${input('c2')} <span>cm long.</span></div><div class="eqLine"><span>(b)</span> ${a} <span>+</span> ${input('c3')} <span>=</span> ${input('c4')}</div><div class="eqLine">The total length of both marker strips is ${input('c5')} <span>cm.</span></div></div>`,expected:{c1:b,c2:b,c3:b,c4:total,c5:total},fields:['c1','c2','c3','c4','c5'],explain:`Yellow strip = ${a} + ${extra} = ${b}. Then ${a} + ${b} = ${total}.`}}
+function makeMarkerStripQuestion(){const a=pick([120,140,160,180,200,220,240,260,280,300]),extra=pick([40,50,60,70,80,90,100,120,140]),b=a+extra,total=a+b;return{type:'Find the larger amount and total',title:'How long are the two lane-marker strips?',story:`A blue lane-marker strip is <b>${a} cm</b> long. A yellow lane-marker strip is <b>${extra} cm</b> longer than the blue strip.<br>(a) How long is the yellow strip?<br>(b) What is the total length of both marker strips?`,render:()=>`<div class="svgWrap">${markerStripSVG(a,extra)}</div><div class="mathBlock"><div class="eqLine"><span>(a)</span> ${a} <span>+</span> ${extra} <span>=</span> ${input('c1')}</div><div class="eqLine">The yellow strip is ${input('c2')} <span>cm long.</span></div><div class="eqLine"><span>(b)</span> ${a} <span>+</span> ${input('c3')} <span>=</span> ${input('c4')}</div><div class="eqLine">The total length of both marker strips is ${input('c5')} <span>cm.</span></div></div>`,expected:{c1:b,c2:b,c3:b,c4:total,c5:total},fields:['c1','c2','c3','c4','c5'],explain:`Yellow strip = ${a} + ${extra} = ${b}. Then ${a} + ${b} = ${total}.`}}
+
+function makeVolumeSmallerQuestion(){
+  const smaller=pick([240,260,280,300,320,350,360,400,420,450,480,500,520,550,600]);
+  const diff=pick([40,50,60,70,80,90,100,120,150,180,200]);
+  const bigger=smaller+diff;
+  return{
+    type:'Find the smaller amount',
+    title:'How much water is in Bottle B?',
+    story:`At the Sports Fiesta hydration station, Bottle A contains <b>${bigger} ml</b> of water. Bottle A contains <b>${diff} ml</b> more water than Bottle B. How much water is in Bottle B?`,
+    render:()=>`<div class="svgWrap">${compareVolumeSVG(bigger,smaller,diff,"Bottle A","Bottle B")}</div><div class="mathBlock"><div class="eqLine">${input('va1')} <span>−</span> ${input('va2')} <span>=</span> ${input('va3')}</div><div class="eqLine">Bottle B contains ${input('va4')} <span>ml of water.</span></div></div>`,
+    expected:{va1:bigger,va2:diff,va3:smaller,va4:smaller},
+    fields:['va1','va2','va3','va4'],
+    explain:`${bigger} − ${diff} = ${smaller}.`
+  };
+}
+function makeVolumeMissingQuestion(){
+  const capacity=pick([500,600,700,800,900,1000]);
+  const remaining=pick([100,150,200,250,300].filter(x=>x<capacity));
+  const content=capacity-remaining;
+  return{
+    type:'Find the missing part',
+    title:'How much more water can the bottle hold?',
+    story:`A sports bottle can hold <b>${capacity} ml</b> of water when full. It already contains <b>${content} ml</b>. How much more water can the bottle hold?`,
+    render:()=>`<div class="svgWrap">${volumeCapacitySVG(content,capacity,remaining)}</div><div class="mathBlock"><div class="eqLine">${input('vb1')} <span>−</span> ${input('vb2')} <span>=</span> ${input('vb3')}</div><div class="eqLine">The bottle can hold ${input('vb4')} <span>ml more water.</span></div></div>`,
+    expected:{vb1:capacity,vb2:content,vb3:remaining,vb4:remaining},
+    fields:['vb1','vb2','vb3','vb4'],
+    explain:`${capacity} − ${content} = ${remaining}.`
+  };
+}
+function makeVolumeLargerTotalQuestion(){
+  const a=pick([200,250,300,350,400,450,500]);
+  const extra=pick([50,100,150,200]);
+  const b=a+extra,total=a+b;
+  return{
+    type:'Find the larger amount and total',
+    title:'How much water is in the two jugs?',
+    story:`A blue jug contains <b>${a} ml</b> of water. A yellow jug contains <b>${extra} ml</b> more water than the blue jug.<br>(a) How much water is in the yellow jug?<br>(b) What is the total volume of water in both jugs?`,
+    render:()=>`<div class="svgWrap">${volumePairSVG(a,extra)}</div><div class="mathBlock"><div class="eqLine"><span>(a)</span> ${a} <span>+</span> ${extra} <span>=</span> ${input('vc1')}</div><div class="eqLine">The yellow jug contains ${input('vc2')} <span>ml of water.</span></div><div class="eqLine"><span>(b)</span> ${a} <span>+</span> ${input('vc3')} <span>=</span> ${input('vc4')}</div><div class="eqLine">The total volume of water is ${input('vc5')} <span>ml.</span></div></div>`,
+    expected:{vc1:b,vc2:b,vc3:b,vc4:total,vc5:total},
+    fields:['vc1','vc2','vc3','vc4','vc5'],
+    explain:`Yellow jug = ${a} + ${extra} = ${b} ml. Then ${a} + ${b} = ${total} ml.`
+  };
+}
 function raceMax(){return mode===2?Math.ceil(TOTAL/2):TOTAL}function raceX(score){return 80+(score/raceMax())*420}function raceIcon(score){const f=score/raceMax();return f<.34?'🏊':f<.67?'🚴':'🏃'}
 function setAthletePositions(){
   const a1=document.getElementById('athlete1'),a2=document.getElementById('athlete2');
@@ -114,5 +207,4 @@ function finish(){document.getElementById('bar').style.width='100%';saveHubProgr
 document.addEventListener('keydown',e=>{if(!document.getElementById('game').classList.contains('active'))return;if(e.key==='Enter'){e.preventDefault();if(answered)nextQuestion();else checkAnswer()}})
 document.getElementById('previewArt').innerHTML=`<svg viewBox="0 0 560 230" style="width:100%;height:100%"><rect width="560" height="230" fill="#f8fdff"/><rect x="20" y="115" width="160" height="88" rx="16" fill="#bfeeff"/><rect x="200" y="115" width="160" height="88" rx="16" fill="#e8edf2"/><rect x="380" y="115" width="160" height="88" rx="16" fill="#f2dfb6"/><text x="100" y="160" text-anchor="middle" font-size="42">🏊</text><text x="280" y="160" text-anchor="middle" font-size="42">🚴</text><text x="460" y="160" text-anchor="middle" font-size="42">🏃</text><text x="280" y="48" text-anchor="middle" font-size="28" font-weight="900" fill="#124b7b">Solve • Move • Finish!</text><text x="280" y="79" text-anchor="middle" font-size="19" font-weight="900" fill="#5c748a">Swim → Cycle → Run</text></svg>`;
 </script>
-<script src="https://limkimsze-maker.github.io/P3-Length-Mass-and-Volume-Sports-Fiesta-/sports-fiesta-medal-hook-v4.js?v=20260810d" data-practice="10" data-sport="Triathlon"></script>
 </body></html>
